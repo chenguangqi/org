@@ -1,0 +1,42 @@
+#+TITLE: 日志处理
+#+LANGUAGE: zh-CN
+#+AUTHOR: 陈广歧
+#+EMAIL: 348249063@qq.com
+#+OPTIONS: toc:nil
+
+* 介绍
+在这个分类中的函数用于处理带有分类和优先级的简单日志消息。
+
+默认的日志优先级如下：
+| =SDL_LOG_CATEGORY_APPLICATION= | =SDL_LOG_PRIORITY_INFO=     |
+| =SDL_LOG_CATEGORY_ASSERT=      | =SDL_LOG_PRIORITY_WARN=     |
+| =SDL_LOG_CATEGORY_TEST=        | =SDL_LOG_PRIORITY_VERBOSE=  |
+| everything other               | =SDL_LOG_PRIORITY_CRITICAL= |
+
+如果你要调试SDL，可以调用：
+: SDL_LogSetAllPriority(SDL_LOG_PRIORITY_WARN);
+
+对于不同的平台，消息输出的位置如下：
+| Window  | debug output stream            |
+| Android | log output                     |
+| Other   | standard error output (stderr) |
+* 枚举
+1. =SDL_LOG_CATEGORY=
+2. =SDL_LOG_Priority=
+
+* 函数
+1. =SDL_Log=
+2. =SDL_LogCritial=
+3. =SDL_LogDebug=
+4. =SDL_LogError=
+5. =SDL_LogGetOutputFuncation=
+6. =SDL_LogGetPriority=
+7. =SDL_LogInfo=
+8. =SDL_LogMessage=
+9. =SDL_LogMessageV=
+10. =SDL_LogResetPriorities=
+11. =SDL_LogSetAllPriority=
+12. =SDL_LogSetOutputFuncation=
+13. =SDL_LogSetPriority=
+14. =SDL_LogVerbose=
+15. =SDL_LogWarn=

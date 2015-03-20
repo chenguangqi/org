@@ -1,0 +1,17 @@
+#+TITLE: 错误处理
+#+LANGUAGE: zh-CN
+#+AUTHOR: 陈广歧
+#+EMAIL: 348249063@qq.com
+#+OPTIONS: toc:nil
+
+* 介绍
+在这个分类中的函数为SDL提供了简单的错误消息程序。 =SDL_GetError()= 调用几乎可以为所有的SDL函数
+判断发生的什么问题。查看每个特定SDL函数的WiKi页面，看 =SDL_GetError()= 是否对它们有用或没用。
+
+SDL的错误消息是英文的。
+
+* 函数
+
+1. =SDL_CleanError=
+2. =SDL_GetError=
+3. =SDL_SetError=

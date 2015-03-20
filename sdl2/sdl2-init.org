@@ -1,0 +1,34 @@
+#+TITLE: SDL的初始化和关闭
+#+LANGUAGE: zh-CN
+#+AUTHOR: 陈广歧
+#+EMAIL: 348249063@qq.com
+#+OPTIONS: toc:nil
+* 初始化
+为了在你的程序中开始使用SDL，必用在大多数SDL函数之前调用 =SDL_Init()= 。
+=SDL_Init()= 扮演的角色是正确初始化SDL库并且启动各个子系统的请求也作为该调用的一部分。
+
+#+BEGIN_QUOTE
+事件处理，文件I/O和线程等子系统是默认被初始化的。为了初始化其他的子系统，必须在调用中指定。
+多子系统可以用或操作符连接起来。
+#+BEGIN_SRC C++
+/* 初始化3个默认子系统，加视频和音频子系统*/
+SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO);
+#+END_SRC
+#+END_QUOTE
+
+在有些操作系统上需要注意，如果 =SDL_main()= 没有被定义作为的入口点， =SDL_Init()= 调用将会失败。
+在 =SDL_Init()= 之前调用 =SDL_SetMainReady()= 将避免这个失败情况，然而，用户应该小心，
+当调用 =SDL_SetMainReady()= 不正确时，可能会造成崩溃和难以诊断的问题。
+
+* 关闭
+=SDL_Quit()= 应该在程序退出之前调用，来安全的关闭所有子系统，包括默认的那几个子系统。
+- 当调用 =SDL_Quit()= 时，不需要单独指定各个子系统，它将自动关闭所有活动的子系统。
+
+* 函数
+1. =SDL_Init=
+2. =SDL_InitSubSystem=
+3. =SDL_Quit=
+4. =SDL_QuitSubSystem=
+5. =SDL_SetMainReady=
+6. =SDL_WasInit=
+7. =SDL_WinRTRunApp=
