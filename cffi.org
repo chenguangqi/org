@@ -1,0 +1,33 @@
+#+TITLE: CFFI使用手册
+#+AUTHOR: 陈广歧
+#+EMAIL: 348249063@qq.com
+#+LANGUAGE: zh-CN
+#+OPTIONS: toc:nil
+
+* 库
+** 定义库
+你要访问的外部代码几乎所有的都已经存在于各种共享库中。在不同平台上共享库的含义不同，
+针对我们的目的，我们将考虑包含Unix上的.so文件，Darwin上的frameworks以及Windows
+上的.dll文件。
+
+使这些库中的一个进入Lisp镜像中通常分为两步。
+1. 用 =define-foreign-library= 描述CFFI在未来的某个时候怎么载入库，以及
+   依赖的平台和其他因素。
+2. 用顶层形式 =use-foreign-library= 或调用函数 =load-foreign-library= 载入定义的库。
+参见[[loading-foreign-libraries]]，上面两步的一个例子。
+
+** 库定义的风格
+看到之前 =libcurl= 库的定义，你可能要问，我们为什么不简单的这样做：
+#+BEGIN_SRC lisp
+  (define-foreign-library libcurl
+    (t (:default "libcurl")))
+#+END_SRC
+确实，这个在我测试这个教程测时用的电脑上可以工作。然而，提供当前版本号有很多好的原因。也就是说
+，在目前的多数Unix系统没有无版本的.so文件，而是全版本的库，在开发包中包含了C的头文件和.a的静态库。
+
+
+** 字典
+
+*** close-foreign-library
+
+*** 
